@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState, useEffect} from 'react';
+import Navbar from "./components/Navbar";
+
+import StoryLibrary from './components/StoryLibrary';
+import LiveBooks from './components/LiveBooks';
+// Removed invalid top-level useState and useEffect
+// import { useState, useEffect } from "react";
+
 
 function App() {
+  const [books, setBooks] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:8000/books")
+      .then(response => response.json())
+      .then(data => setBooks(data));
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>📚 Reading Adventure</h1>
+      {books.map(book => (
+        <p key={book.id}>{book.title}</p>
+      ))}
     </div>
   );
 }
