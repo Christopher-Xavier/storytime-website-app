@@ -1,35 +1,33 @@
 import React from "react";
-function smoothScroll(target) {
-  document.querySelector(target).scrollIntoView({ behavior: "smooth" });
-}
 
 function Navbar() {
   return (
     <nav style={styles.navbar}>
+      <img src="/logo.png" alt="Storytime Logo" style={styles.logo} />
       <ul style={styles.navList}>
-        <li><a href="#home" onClick={() => smoothScroll("#home")}>Home</a></li>
-        <li><a href="#books" onClick={() => smoothScroll("#books")}>Books</a></li>
-        <li><a href="#about" onClick={() => smoothScroll("#about")}>About</a></li>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#books">Books</a></li>
+        <li><a href="#about">About</a></li>
       </ul>
     </nav>
   );
 }
 
 const styles = {
-  navList: {
-    listStyle: "none",
+  navbar: {
     display: "flex",
-    gap: "20px",
+    alignItems: "center",
+    backgroundColor: "#4A90E2",
+    padding: "10px",
   },
-  navItem: {
-    transition: "transform 0.3s ease-in-out",
+  logo: {
+    height: "50px",
+    marginRight: "20px",
   },
-  navItemHover: {
-    transform: "scale(1.1)",
-    color: "#FFD700", // Change color on hover
-  }
 };
 
-
-
 export default Navbar;
+
+
+
+

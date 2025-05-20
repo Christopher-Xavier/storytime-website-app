@@ -1,11 +1,8 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
-
-import StoryLibrary from './components/StoryLibrary';
-import LiveBooks from './components/LiveBooks';
-// Removed invalid top-level useState and useEffect
-// import { useState, useEffect } from "react";
-
+import HomePage from "./components/HomePage"; // Import Home Page
+import StoryLibrary from "./components/StoryLibrary";
+import LiveBooks from "./components/LiveBooks";
 
 function App() {
   const [books, setBooks] = useState([]);
@@ -18,10 +15,18 @@ function App() {
 
   return (
     <div>
-      <h1>📚 Reading Adventure</h1>
-      {books.map(book => (
-        <p key={book.id}>{book.title}</p>
-      ))}
+      <Navbar />
+      <section id="home">
+        <HomePage />
+      </section>
+      <section id="books">
+        <h2>📚 Story Library</h2>
+        {books.map((book) => (
+          <p key={book.id}>{book.title}</p>
+        ))}
+        <StoryLibrary />
+        <LiveBooks />
+      </section>
     </div>
   );
 }

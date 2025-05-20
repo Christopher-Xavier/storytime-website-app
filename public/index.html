@@ -214,19 +214,29 @@
         </div>
     </footer>
 
-    <script>
-        function burstConfetti(event) {
-            for (let i = 0; i < 30; i++) {
-                let confetti = document.createElement("div");
-                let shapeClass = ["confetti star", "confetti twinkle"][Math.floor(Math.random() * 2)];
-                confetti.className = shapeClass;
-                document.body.appendChild(confetti);
-                confetti.style.left = Math.random() * window.innerWidth + "px";
-                confetti.style.animation = "float 8s infinite ease-in-out";
-            }
+<script>
+    function burstConfetti(event) {
+        for (let i = 0; i < 30; i++) {
+            let confetti = document.createElement("div");
+            let shapeClass = ["confetti star", "confetti twinkle"][Math.floor(Math.random() * 2)];
+            confetti.className = shapeClass;
+            document.body.appendChild(confetti);
+            confetti.style.left = Math.random() * window.innerWidth + "px";
+            confetti.style.animation = "float 8s infinite ease-in-out";
         }
-        burstConfetti();
-    </script>
+    }
+    burstConfetti();
+</script>
+
+<div class="magic-tree" onclick="showMagic()">
+  🌳 Click me for magic!
+</div>
+
+<script>
+  function showMagic() {
+    alert("✨ A hidden fairy appears! ✨");
+  }
+</script>
 
   </body>
 </html>
